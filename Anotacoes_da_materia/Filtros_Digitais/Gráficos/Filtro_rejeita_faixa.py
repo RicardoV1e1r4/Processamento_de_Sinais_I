@@ -35,7 +35,9 @@ w1, H1 = freqz(num1, den1, 2048)
 # resposta em frequência passa-alta
 w2, H2 = freqz(num2, den2, 2048)
 
-figure = plt.subplots(figsize=(8,6.5))
+w3, H3 = freqz(num1, den1, 2048)+freqz(num2, den2, 2048)
+
+figure = plt.subplots(figsize=(8,7))
 
 eix1 = plt.subplot(2, 2, 1)
 eix1.plot(w1/(2*np.pi), np.abs(H1))
@@ -45,11 +47,18 @@ eix1.set_ylabel(r'$|H(e^{j\omega})|$')
 eix1.set_title('Filtro Rejeita-Faixa de 2ª Ordem')
 eix1.grid(True)
 
-eix2 = plt.subplot(2, 2, 3, projection='polar')
-eix2.plot(w1/np.pi, np.abs(H1))
-eix2.plot(w2/np.pi, np.abs(H2))
-eix2.set_xlabel(r'$\omega/\pi$')
+eix2 = plt.subplot(2, 2, 1)
+eix2.plot(w3, np.abs(H3))
+eix2.set_xlabel(r'$\omega$ (rad/amostras)')
 eix2.set_ylabel(r'$|H(e^{j\omega})|$')
+eix2.set_title('Filtro Rejeita-Faixa de 2ª Ordem')
 eix2.grid(True)
+
+eix3 = plt.subplot(2, 2, 3, projection='polar')
+eix3.plot(w1/np.pi, np.abs(H1))
+eix3.plot(w2/np.pi, np.abs(H2))
+eix3.set_xlabel(r'$\omega/\pi$')
+eix3.set_ylabel(r'$|H(e^{j\omega})|$')
+eix3.grid(True)
 
 plt.show()
