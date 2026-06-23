@@ -21,8 +21,12 @@ ax = fig.add_subplot(projection='3d')
 
 ax.scatter(sensores_x, 0, 0, marker='o')
 
+xs = [0, 2, 4]
+ys = [1, 3, 5]
+zs = [0, 1, 1]
+
 ax = fig.add_subplot(projection='3d')
 
-ax.scatter(sensores_x, 0, 0, marker='o')
+ax.scatter(xs, ys, zs, marker='o')
 
 plt.show()
