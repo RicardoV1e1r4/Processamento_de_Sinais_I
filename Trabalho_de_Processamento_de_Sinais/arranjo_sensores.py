@@ -17,45 +17,63 @@ import numpy as np
     # generate_ucya(Mc, Nz, R, dz)
     
     
-# Variáveis
+# Variáveis globais
 pi = np.pi
 
 
 def generate_ula(M, d):
-    #, eixo=coord
-    
     comp_total = (M)*d
-    sensores   = np.arange(0, comp_total, d)
-    fig = plt.figure()
-    ax = fig.add_subplot(projection='3d')
-    
-    ax.scatter(sensores, 0, 0, marker='o')
-    ax.set_xlabel('X Label')
-    ax.set_ylabel('Y Label')
-    ax.set_zlabel('Z Label')
+    sensores_x   = np.arange(0, comp_total, d)
+    return sensores_x, 0, 0
 
 
-def generate_uca(M, R):
-    #, eixo=coord
+def generate_uca(M, R):    
+    arc0 = 2*pi/M
     
-    comp_total = 2*pi*R
-    arc0       = comp_total/M
-    
-    # arcs       = np.linspace(0, comp_total, M)
-    
-    fig = plt.figure()
-    ax = fig.add_subplot(projection='3d')
+    xs = np.zeros(M)
+    ys = np.zeros(M)
     
     for i in np.arange(0, M, 1):
-        print(i)
-        xs = R*np.cos((i*arc0))
-        ys = R*np.sin((i*arc0))
-        ax.scatter(xs, ys, 0, marker='o')
-    
-    ax.set_xlabel('X Label')
-    ax.set_ylabel('Y Label')
-    ax.set_zlabel('Z Label')
+        xs[i] = R * np.cos((i*arc0))     # Posição X
+        ys[i] = R * np.sin((i*arc0))     # Posição Y
 
-generate_uca(5, 3)
+    return xs, ys, 0
+
+
+def generate_upa(Mx, My, dx, dy):
+    x = np.arange(0, Mx*dx, dx)
+    y = np.arange(0, My*dy, dy)
+    
+    X, Y = np.meshgrid(x, y)
+    
+    xs = X.flatten()
+    ys = Y.flatten()
+    return xs, ys, 0
+
+
+def generate_ucya(Mc, Nz, R, dz):
+    xs, ys, zs = generate_uca(Mc, R)
+    
+    xs = np.tile(xs, Nz)
+    ys = np.tile(ys, Nz)
+    
+    zs = np.arange(0, Nz*dz, dz)
+    zs = np.repeat(zs, Mc)
+    return xs, ys, zs
+
+
+# xs, ys, zs = generate_ula(6, 3)
+# xs, ys, zs = generate_uca(6, 3)
+# xs, ys, zs = generate_upa(5, 3, 1, 2)
+xs, ys, zs = generate_ucya(12, 6, 3, 1)
+
+fig = plt.figure()
+ax = fig.add_subplot(projection='3d')
+
+ax.scatter(xs, ys, zs, marker='o', color='b')
+
+ax.set_xlabel('X Label')
+ax.set_ylabel('Y Label')
+ax.set_zlabel('Z Label')
 
 plt.show()
