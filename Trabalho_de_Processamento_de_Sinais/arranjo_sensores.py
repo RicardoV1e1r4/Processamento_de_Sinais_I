@@ -22,9 +22,13 @@ pi = np.pi
 
 
 def generate_ula(M, d):
-    comp_total = (M)*d
-    sensores_x   = np.arange(0, comp_total, d)
-    return sensores_x, 0, 0
+    position = np.zeros((M, 3))
+    
+    comp_total = M*d
+    sensores_x = np.arange(-comp_total/2, comp_total/2, d)
+    
+    position[:,0] = position[:,0] + sensores_x
+    return position
 
 
 def generate_uca(M, R):    
@@ -62,15 +66,17 @@ def generate_ucya(Mc, Nz, R, dz):
     return xs, ys, zs
 
 
-# xs, ys, zs = generate_ula(6, 3)
+position = generate_ula(5, 3)
 # xs, ys, zs = generate_uca(6, 3)
 # xs, ys, zs = generate_upa(5, 3, 1, 2)
-xs, ys, zs = generate_ucya(12, 6, 3, 1)
+# xs, ys, zs = generate_ucya(12, 6, 3, 1)
+
+print(position)
 
 fig = plt.figure()
 ax = fig.add_subplot(projection='3d')
 
-ax.scatter(xs, ys, zs, marker='o', color='b')
+ax.scatter(position[:,0], position[:,1], position[:,2], marker='o', color='b')
 
 ax.set_xlabel('X Label')
 ax.set_ylabel('Y Label')
