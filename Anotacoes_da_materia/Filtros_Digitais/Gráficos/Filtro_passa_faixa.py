@@ -11,8 +11,9 @@ from scipy.signal import freqz
 
 pi = np.pi
 
-# parâmetros dos polos
-r = 0.7
+# Raio dos filtros
+r = 0.95
+r2 = 0.8
 
 # Frequências
 fs = 60000
@@ -57,53 +58,48 @@ w2, H2 = freqz(num2, den2, 2048)
 H3 = H1 + H2
 
 
-figure, ax = plt.subplots(figsize=(8,6), layout="constrained")
-spec = figure.add_gridspec(nrows=3, ncols=2)
+figure, eix = plt.subplots(3, 2, figsize=(8,6), layout="constrained")
+# spec = figure.add_gridspec(nrows=3, ncols=2)
 
-# eix1 = plt.subplot(3, 2, 1)
-eix1 = figure.add_subplot(spec[0, 0])
-eix1.plot(w1, np.abs(H1))
-# eix1.plot(w2, np.abs(H2))
-eix1.set_xlabel(r'$\omega$ (rad/amostras)')
-eix1.set_ylabel(r'$|H(e^{j\omega})|$')
-eix1.set_title('Filtro de 2ª Ordem')
-eix1.grid(True)
+print(eix)
 
-# eix2 = plt.subplot(3, 2, 3)
-eix2 = figure.add_subplot(spec[1, 0])
-eix2.plot(w2, np.abs(H2), color='r')
-eix2.set_xlabel(r'$\omega$ (rad/amostras)')
-eix2.set_ylabel(r'$|H(e^{j\omega})|$')
-eix2.grid(True)
+# Filtro Passa-Baixa em Rad/amostras
+eix[0, 0].plot(w1, np.abs(H1))
+eix[0, 0].set_xlabel(r'$\omega$ (rad/amostras)')
+eix[0, 0].set_ylabel(r'$|H(e^{j\omega})|$')
+eix[0, 0].grid(True)
 
-# eix3 = plt.subplot(3, 2, 5)
-eix3 = figure.add_subplot(spec[2, 0])
-eix3.plot(w1, np.abs(H3))
-eix3.set_xlabel(r'$\omega$ (rad/amostras)')
-eix3.set_ylabel(r'$|H(e^{j\omega})|$')
-eix3.grid(True)
+# Filtro Passa-Alta em Rad/amostras
+eix[1, 0].plot(w2, np.abs(H2), color='r')
+eix[1, 0].set_xlabel(r'$\omega$ (rad/amostras)')
+eix[1, 0].set_ylabel(r'$|H(e^{j\omega})|$')
+eix[1, 0].grid(True)
 
-# eix4 = plt.subplot(3, 2, 2)
-eix4 = figure.add_subplot(spec[0, 1])
-eix4.plot(fs*w1/(2*pi), np.abs(H1))
-# eix4.plot(w2, np.abs(H2))
-eix4.set_xlabel(r'$\omega/2\pi$')
-eix4.set_ylabel(r'$|H(e^{j\omega})|$')
-eix4.set_title('Filtro de 2ª Ordem')
-eix4.grid(True)
+# Soma dos filtros PB e PA em Rad/amostras
+eix[2, 0].plot(w1, np.abs(H3))
+eix[2, 0].set_xlabel(r'$\omega$ (rad/amostras)')
+eix[2, 0].set_ylabel(r'$|H(e^{j\omega})|$')
+eix[2, 0].grid(True)
 
-# eix5 = plt.subplot(3, 2, 4)
-eix5 = figure.add_subplot(spec[1, 1])
-eix5.plot(fs*w2/(2*pi), np.abs(H2), color='r')
-eix5.set_xlabel(r'$\omega/2\pi$')
-eix5.set_ylabel(r'$|H(e^{j\omega})|$')
-eix5.grid(True)
+# Filtro Passa-Baixa em Hertz
+eix[0, 1].plot(fs*w1/(2*pi), np.abs(H1))
+eix[0, 1].set_xlabel(r'$\omega/2\pi$')
+eix[0, 1].set_ylabel(r'$|H(e^{j\omega})|$')
+eix[0, 1].grid(True)
 
-# eix6 = plt.subplot(3, 2, 6)
-eix6 = figure.add_subplot(spec[2, 1])
-eix6.plot(fs*w1/(2*pi), np.abs(H3))
-eix6.set_xlabel(r'$\omega/2\pi$')
-eix6.set_ylabel(r'$|H(e^{j\omega})|$')
-eix6.grid(True)
+# Filtro Passa-Alta em Hertz
+eix[1, 1].plot(fs*w2/(2*pi), np.abs(H2), color='r')
+eix[1, 1].set_xlabel(r'$\omega/2\pi$')
+eix[1, 1].set_ylabel(r'$|H(e^{j\omega})|$')
+eix[1, 1].grid(True)
 
+# Soma dos Filtros PB e PA em Hertz
+eix[2, 1].plot(fs*w1/(2*pi), np.abs(H3))
+eix[2, 1].set_xlabel(r'$\omega/2\pi$')
+eix[2, 1].set_ylabel(r'$|H(e^{j\omega})|$')
+eix[2, 1].grid(True)
+
+figure.suptitle("FIltro Passa-Faixa de 2ª ordem")
+
+plt.tight_layout()
 plt.show()
