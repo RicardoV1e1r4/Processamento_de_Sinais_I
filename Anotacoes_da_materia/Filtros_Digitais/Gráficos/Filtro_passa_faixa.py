@@ -12,8 +12,8 @@ from scipy.signal import freqz
 pi = np.pi
 
 # Raio dos filtros
-r = 0.95
-r2 = 0.8
+r1 = 0.80   # Raio do filtro do passa-baixa
+r2 = 0.8   # Raio do filtro do passa-alta
 
 # Frequências
 fs = 60000
@@ -32,13 +32,13 @@ print(w1)
 print(w2)
 
 # Passa-baixas
-m_baixa1 = -2*r*np.cos(w2)
-m_baixa2 = r**2
+m_baixa1 = -2*r1*np.cos(w2)
+m_baixa2 = r1**2
 print(m_baixa1)
 
 # Passa-alta
-m_alta1 = -2*r*np.cos(w1)
-m_alta2 = r**2
+m_alta1 = -2*r2*np.cos(w1)
+m_alta2 = r2**2
 print(m_alta1)
 
 # coeficientes do passa baixa
