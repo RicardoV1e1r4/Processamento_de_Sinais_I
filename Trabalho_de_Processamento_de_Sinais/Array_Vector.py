@@ -23,7 +23,7 @@ qtd_antenas = 2
 antenas = np.arange(0, qtd_antenas, 1)
 
 # Vetor de ângulos
-angles = np.arange(-pi, pi, ts)
+angles = np.arange(-pi/2, pi/2, ts)
 
 #
 psi = 2*pi*(d/lambd)*np.sin(angles)
@@ -40,6 +40,15 @@ for indice, k in enumerate(psi):
 # Calculo do Array Vector
 AF = np.zeros(len(angles), dtype=complex)
 
-for indice, m in AF:
-    
+for indice, m in enumerate(AF):
+    AF[indice] = sum(steering_vector[indice, :])
 
+# Cálculo do Ganho
+AF_db = np.zeros(len(angles))
+
+for indice, m in enumerate(AF):
+    module = abs(m/2)
+    AF_db[indice] = 10*np.log10(module**2)
+    
+plt.plot(angles, AF_db)
+plt.show()
