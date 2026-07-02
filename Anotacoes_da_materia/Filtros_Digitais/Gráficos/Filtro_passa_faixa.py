@@ -12,8 +12,8 @@ from scipy.signal import freqz
 pi = np.pi
 
 # Raio dos filtros
-r1 = 0.80   # Raio do filtro do passa-baixa
-r2 = 0.8   # Raio do filtro do passa-alta
+r1 = 0.9   # Raio do filtro do passa-baixa
+r2 = 0.9   # Raio do filtro do passa-alta
 
 # Frequências
 fs = 60000
@@ -28,8 +28,8 @@ Omega_2 = 2*pi*f2
 # rad/amostras
 w1 = 2*pi*(f1/fs)
 w2 = 2*pi*(f2/fs)
-print(w1)
-print(w2)
+# print(w1)
+# print(w2)
 
 # Passa-baixas
 m_baixa1 = -2*r1*np.cos(w2)
@@ -61,7 +61,7 @@ H3 = H1 + H2
 figure, eix = plt.subplots(3, 2, figsize=(8,6), layout="constrained")
 # spec = figure.add_gridspec(nrows=3, ncols=2)
 
-print(eix)
+# print(eix)
 
 # Filtro Passa-Baixa em Rad/amostras
 eix[0, 0].plot(w1, np.abs(H1))
