@@ -20,7 +20,7 @@ ts = 1/fs
 fator = 0.5
 lambd = 1
 d = lambd*fator
-qtd_antenas = 8
+qtd_antenas = 16
 antenas = np.arange(0, qtd_antenas, 1)
 
 # Vetor de ângulos
@@ -59,11 +59,12 @@ AF_db = 20*np.log10(AF_mod)
 plt.plot(360*angles/(2*pi), AF_db)
 plt.ylim((-60, 1))
 plt.xlim((-180*x_lim/(2*pi), 180*x_lim/(2*pi)))
+plt.grid()
 
 # Polar
 figura, ax = plt.subplots(subplot_kw={'projection': 'polar'})
 
-ax.plot(angles, AF_db, label='Espiral')
+ax.plot(angles + pi/2, AF_db, label='Espiral')
 ax.set_rlim((-50,1))
 ax.set_title('Gráfico Polar')
 
