@@ -11,20 +11,20 @@ import numpy as np
 # Variáveis
 pi = np.pi
 
+x_lim = pi
+
 fs = 1000
 ts = 1/fs
 
-fator = 1.5
-lambd = 0.8
+# Parametros da antena
+fator = 0.5
+lambd = 1
 d = lambd*fator
-
-# d = 0.8
-# Vetores
 qtd_antenas = 2
 antenas = np.arange(0, qtd_antenas, 1)
 
 # Vetor de ângulos
-angles = np.arange(-pi/2, pi/2, ts)
+angles = np.arange(-x_lim, x_lim, ts)
 
 #
 psi = 2*pi*(d/lambd)*np.sin(angles)
@@ -52,6 +52,19 @@ for indice, m in enumerate(AF):
 AF_mod = abs(AF)
 AF_mod = AF_mod/np.max(AF_mod)
 AF_db = 20*np.log10(AF_mod)
-    
-plt.plot(180*angles/pi, AF_db)
+
+
+# Gráficos
+# Cartesiano
+plt.plot(360*angles/(2*pi), AF_db)
+plt.ylim((-60, 1))
+plt.xlim((-180*x_lim/(2*pi), 180*x_lim/(2*pi)))
+
+# Polar
+figura, ax = plt.subplots(subplot_kw={'projection': 'polar'})
+
+ax.plot(angles, AF_db, label='Espiral')
+ax.set_title('Gráfico Polar')
+
+plt.tight_layout()
 plt.show()
