@@ -21,8 +21,6 @@ Omega_1 = 2*pi*f1              #(rad/s)
 
 wp = 2*pi*f1/fs 
 
-#wp = (np.pi**2)/5
-
 m2 = r**2
 m1 = -2*(m2**0.5)*np.cos(wp)
 m3 = m1/(m2**0.5)
@@ -31,12 +29,10 @@ m3 = m1/(m2**0.5)
 b = [1, m3, 1]
 a = [1, m1, m2]
 
-# resposta em frequência
+# Resposta em frequência
 w, H = freqz(b, a, 2048)
 
 figure, (eix1, eix2) = plt.subplots(2, 1, figsize=(8, 6))
-
-# plt.figure(figsize=(8,4))
 
 eix1.plot(w, np.abs(H))
 eix1.set_xlabel(r'$\omega (rad/amostra)$')

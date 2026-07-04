@@ -17,6 +17,7 @@ r2 = 0.8
 
 w1 = 0.25
 w2 = 0.35
+ws = 1
 
 # Passa-baixas
 m_baixa1 = -2*r1*np.cos(w1)
