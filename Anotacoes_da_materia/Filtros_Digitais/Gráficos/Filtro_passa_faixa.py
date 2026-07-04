@@ -52,11 +52,14 @@ den2 = [1, m_alta1, m_alta2]
 # resposta em frequência passa-baixa
 w1, H1 = freqz(num1, den1, 2048)
 
+H1 = H1/(max(H1))
+
 # resposta em frequência passa-alta
 w2, H2 = freqz(num2, den2, 2048)
 
-H3 = H1 + H2
+H2 = H2/(max(H2))
 
+H3 = H1 * H2
 
 figure, eix = plt.subplots(3, 2, figsize=(8,6), layout="constrained")
 # spec = figure.add_gridspec(nrows=3, ncols=2)
