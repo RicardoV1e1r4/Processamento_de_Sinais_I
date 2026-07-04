@@ -46,4 +46,5 @@ eix2.set_ylabel(r'$|H(e^{j\omega})|$')
 # eix2.set_title('Filtro Passa-Baixas de 2ª Ordem')
 eix2.grid(True)
 
+plt.tight_layout()
 plt.show()
