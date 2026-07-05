@@ -31,11 +31,11 @@ def janela_triangular(M):
 def janela_hamming(M):
     n_pos = np.arange(1, int(M//2) + 1)
     
-    alpha = 0.54
+    alpha = 0.5
     wh0 = alpha + (1 - alpha) * np.cos((2 * pi * 0)/M)
     wh_pos = alpha + (1 - alpha) * np.cos((2 * pi * n_pos)/M)
     
     wh = np.concatenate((np.flip(wh_pos), [wh0], wh_pos))
-    n = np.concatenate(([0], n_pos, n_pos + 40))
+    # n = np.concatenate(([0], n_pos, n_pos + int(M//2)))
     
-    return n, wh
+    return wh
