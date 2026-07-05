@@ -21,8 +21,8 @@ def passa_baixas(M, wc):
     hn_pos = 1/(pi*n_pos)*np.sin(wc*n_pos)
     
     hn = np.concatenate((np.flip(hn_pos), [h0], hn_pos))
-    n  = np.concatenate((np.flip(n_pos), [0], n_pos))
-    return n, hn
+    # n  = np.concatenate((-np.flip(n_pos), [0], n_pos))
+    return hn
 
 
 # Passa_baixas
@@ -33,10 +33,10 @@ def passa_altas(M, wc):
     hn_pos = -1/(pi*n_pos)*np.sin(wc*n_pos)
     
     hn = np.concatenate((np.flip(hn_pos), [h0], hn_pos))
-    n  = np.concatenate((np.flip(n_pos), [0], n_pos))
-    return n, hn
+    # n  = np.concatenate((-np.flip(n_pos), [0], n_pos))
+    return hn
 
-x, y = passa_altas(8, 0.5)
+# x, y = passa_altas(8, 0.5)
 
 # plt.stem(x, y)
 
