@@ -32,12 +32,11 @@ rejeita_faixa = pb + pa
 window_r = fj.janela_retangular(M)
 window_h = fj.janela_hamming(M)
 
-hn_linha = rejeita_faixa * window_h
+hn_linha = rejeita_faixa * window_r
 
 omega1, Hhamm = freqz(hn_linha, 1, 2048)
 
 # plt.stem(n, pa)
 plt.plot(Omega_s * omega1/(2 * pi), 20 * np.log10(abs(Hhamm)/max(abs(Hhamm))))
-# plt.ylim((-200, 1))
 
 plt.show()

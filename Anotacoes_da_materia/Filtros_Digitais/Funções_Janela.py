@@ -36,6 +36,5 @@ def janela_hamming(M):
     wh_pos = alpha + (1 - alpha) * np.cos((2 * pi * n_pos)/M)
     
     wh = np.concatenate((np.flip(wh_pos), [wh0], wh_pos))
-    # n = np.concatenate(([0], n_pos, n_pos + int(M//2)))
     
     return wh
