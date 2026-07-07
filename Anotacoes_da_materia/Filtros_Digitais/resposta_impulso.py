@@ -32,11 +32,14 @@ rejeita_faixa = pb + pa
 window_r = fj.janela_retangular(M)
 window_h = fj.janela_hamming(M)
 
-hn_linha = rejeita_faixa * window_r
+hn_linha = rejeita_faixa * window_h
+# print(len(hn_linha))
 
-omega1, Hhamm = freqz(hn_linha, 1, 2048)
+# plt.plot(n, hn_linha, color='r')
 
-# plt.stem(n, pa)
-plt.plot(Omega_s * omega1/(2 * pi), 20 * np.log10(abs(Hhamm)/max(abs(Hhamm))))
+omega1, Hz = freqz(hn_linha, 1, 2048)
+plt.plot(Omega_s * omega1/(2 * pi), 20 * np.log10(abs(Hz)))
+plt.xlabel("frequency (Hz)")
+plt.ylabel("Resposta de módulo (dB)")
 
 plt.show()
