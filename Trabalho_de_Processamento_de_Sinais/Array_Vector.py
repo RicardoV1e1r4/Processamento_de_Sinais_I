@@ -53,7 +53,6 @@ AF_mod = abs(AF)
 AF_mod = AF_mod/np.max(AF_mod)
 AF_db = 20*np.log10(AF_mod)
 
-
 # Gráficos
 # Cartesiano
 plt.plot(360*angles/(2*pi), AF_db)
@@ -64,7 +63,7 @@ plt.grid()
 # Polar
 figura, ax = plt.subplots(subplot_kw={'projection': 'polar'})
 
-ax.plot(angles + pi/2, AF_db, label='Espiral')
+ax.plot(angles, AF_db, label='Espiral')
 ax.set_rlim((-50,1))
 ax.set_title('Gráfico Polar')
 
