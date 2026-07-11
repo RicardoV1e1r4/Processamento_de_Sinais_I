@@ -1,107 +1,132 @@
 # Processamento de Sinais I
 
-Repositório destinado ao armazenamento e organização das atividades desenvolvidas durante a disciplina **Processamento de Sinais I**.
+Repositório dedicado ao armazenamento e organização das atividades desenvolvidas durante a disciplina **Processamento de Sinais I**.
 
-O principal objetivo deste repositório é registrar a evolução do aprendizado ao longo da disciplina, reunindo exercícios, trabalhos, implementações computacionais, relatórios e demais materiais produzidos durante as aulas.
-
-Além de servir como registro acadêmico, este repositório também funciona como material de consulta para futuras disciplinas e projetos relacionados à área de Processamento Digital de Sinais (DSP).
+O objetivo deste projeto é documentar o aprendizado adquirido ao longo da disciplina por meio de implementações computacionais, listas de exercícios, práticas de laboratório, relatórios e anotações de aula. Dessa forma, o repositório também serve como material de consulta para estudos futuros em Processamento Digital de Sinais (DSP).
 
 ---
 
 ## Objetivos
 
-- Organizar todas as atividades da disciplina em um único local;
-- Registrar a evolução do aprendizado ao longo do semestre;
-- Disponibilizar implementações computacionais dos conceitos estudados;
-- Servir como material de revisão para estudos futuros;
-- Documentar soluções, experimentos e análises realizadas durante as aulas.
+- Registrar as atividades desenvolvidas durante a disciplina;
+- Organizar códigos, relatórios e materiais de estudo;
+- Documentar implementações dos algoritmos apresentados em aula;
+- Facilitar revisões e consultas futuras;
+- Centralizar todo o conteúdo produzido ao longo do semestre.
 
 ---
 
 ## Estrutura do repositório
 
-Cada diretório corresponde a um conjunto de atividades, experimentos ou conteúdos abordados durante a disciplina.
-
 ```text
 Processamento_de_Sinais_I/
 │
-├── Aula_01/
-├── Aula_02/
-├── Exercícios/
-├── Trabalhos/
-├── Relatórios/
-├── Figuras/
-├── ...
+├── Anotacoes_da_Materia/
+│   ├── Filtros_Digitais/
+│   └── Transformada_Z_e_Fourier/
+│
+├── Praticas/
+│   ├── arquivos_complementares/
+│   ├── pratica1/
+│   ├── pratica2/
+│   ├── pratica3/
+├── Trabalho_de_Processamento_de_Sinais/
+│
+├── NOTAS/
+├── LICENSE
 └── README.md
 ```
 
-> A organização poderá ser modificada ao longo do semestre conforme novos conteúdos forem sendo adicionados.
+> A estrutura do repositório poderá sofrer alterações conforme novos conteúdos forem sendo estudados.
 
 ---
 
-## Conteúdo
+## Descrição das pastas
 
-Durante a disciplina, este repositório poderá conter materiais relacionados a temas como:
+### 📚 Anotações da matéria
 
-- Sistemas Lineares e Invariantes no Tempo (LTI)
-- Convolução
-- Séries e Transformada de Fourier
+Contém implementações, exemplos, gráficos e códigos desenvolvidos durante o estudo dos conteúdos apresentados em sala de aula.
+
+Os principais tópicos incluem:
+
+- Filtros Digitais
+- Resposta ao Impulso
+- Janelas
 - Transformada Z
-- Transformada Discreta de Fourier (DFT)
-- Transformada Rápida de Fourier (FFT)
-- Amostragem
-- Projeto de filtros digitais
-- Resposta em frequência
-- Implementações em Python
+- Transformada de Fourier
 - Simulações computacionais
-- Relatórios e listas de exercícios
+
+---
+
+### 🧪 Práticas
+
+Reúne todas as atividades práticas realizadas ao longo da disciplina.
+
+Cada prática possui seus próprios códigos, arquivos auxiliares, resultados e, quando necessário, versões em diferentes linguagens.
+
+---
+
+### 📝 Notas
+
+Contém resumos, observações e anotações importantes produzidas durante a disciplina.
 
 ---
 
 ## Tecnologias utilizadas
 
-As implementações presentes neste repositório utilizam principalmente:
+Os códigos presentes neste repositório utilizam principalmente:
 
 - Python 3
 - NumPy
 - Matplotlib
-- SciPy (quando necessário)
-- Jupyter Notebook
-- Google Colab
+- SciPy
+- GNU Octave
 
 ---
 
-## Organização das atividades
+## Organização dos códigos
 
-Cada atividade procura conter, sempre que aplicável:
+Sempre que possível, cada atividade é organizada contendo:
 
 - descrição do problema;
-- desenvolvimento matemático;
 - implementação computacional;
 - resultados obtidos;
-- gráficos e figuras;
-- comentários e conclusões.
+- gráficos;
+- comentários sobre a solução.
 
-Essa organização facilita tanto a consulta posterior quanto o entendimento do processo de resolução.
-
----
-
-## Observações
-
-Este repositório possui finalidade **acadêmica e educacional**.
-
-As soluções disponibilizadas representam implementações realizadas durante a disciplina e podem sofrer alterações conforme novos conceitos forem aprendidos.
+Essa organização facilita tanto a manutenção quanto futuras consultas.
 
 ---
 
-## Referências
+## Conteúdo abordado
 
-Algumas implementações foram desenvolvidas com base no conteúdo apresentado em aula e em bibliografias clássicas de Processamento Digital de Sinais, tais como:
+Entre os assuntos estudados ao longo da disciplina estão:
 
-- Alan V. Oppenheim
-- Ronald Schafer
-- John G. Proakis
-- Simon Haykin
+- Sistemas Lineares e Invariantes no Tempo (LTI)
+- Convolução
+- Resposta ao impulso
+- Transformada de Fourier
+- Transformada Z
+- Amostragem
+- Projeto de filtros FIR
+- Projeto de filtros IIR
+- Janelas
+- Resposta em frequência
+- Implementações em Python e Octave
+
+---
+
+## Finalidade
+
+Este repositório possui finalidade exclusivamente **acadêmica**, servindo como registro das atividades desenvolvidas durante a disciplina de Processamento de Sinais I.
+
+Os códigos aqui disponibilizados representam implementações realizadas para fins de estudo e podem sofrer melhorias ao longo do tempo.
+
+---
+
+## Licença
+
+Este projeto está licenciado sob a licença MIT. Consulte o arquivo **LICENSE** para mais informações.
 
 ---
 
@@ -109,6 +134,6 @@ Algumas implementações foram desenvolvidas com base no conteúdo apresentado e
 
 **Ricardo Alexandre Vieira**
 
-Graduando em Engenharia de Telecomunicações – CEFET/RJ
+Graduando em Engenharia de Telecomunicações — CEFET/RJ
 
 GitHub: https://github.com/RicardoV1e1r4
