@@ -27,9 +27,9 @@ Processamento_de_Sinais_I/
 │
 ├── Praticas/
 │   ├── arquivos_complementares/
-│   ├── pratica1/
-│   ├── pratica2/
-│   ├── pratica3/
+│   ├── pratica01/
+│   ├── pratica02/
+│   ├── pratica03/
 ├── Trabalho_de_Processamento_de_Sinais/
 │
 ├── NOTAS/
@@ -127,6 +127,17 @@ Os códigos aqui disponibilizados representam implementações realizadas para f
 ## Licença
 
 Este projeto está licenciado sob a licença MIT. Consulte o arquivo **LICENSE** para mais informações.
+
+---
+
+## Referências
+
+Algumas implementações foram desenvolvidas com base no conteúdo apresentado em aula e em bibliografias clássicas de Processamento Digital de Sinais, tais como:
+
+- Alan V. Oppenheim
+- Ronald Schafer
+- John G. Proakis
+- Simon Haykin
 
 ---
 
