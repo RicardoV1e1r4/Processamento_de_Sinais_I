@@ -21,16 +21,17 @@ O objetivo deste projeto é documentar o aprendizado adquirido ao longo da disci
 ```text
 Processamento_de_Sinais_I/
 │
-├── Anotacoes_da_Materia/
+├── anotacoes-e-programas/
 │   ├── Filtros_Digitais/
 │   └── Transformada_Z_e_Fourier/
 │
-├── Praticas/
+├── praticas/
 │   ├── arquivos_complementares/
 │   ├── pratica01/
 │   ├── pratica02/
 │   ├── pratica03/
-├── Trabalho_de_Processamento_de_Sinais/
+|
+├── trabalho-arranjos/
 │
 ├── NOTAS/
 ├── LICENSE
