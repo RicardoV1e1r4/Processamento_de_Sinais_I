@@ -20,19 +20,19 @@ de frequência lineares, quadráticas e logarítmicas.
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.fft import fft, fftfreq
+from scipy import signal
 
-#%%
-# Parâmetros
+#%% Parâmetros
 pi = np.pi
 
 f0 = 500
-f1 = 5e3
+f1 = 10e3
 
 fs = 44.1e3
 
-duracao = 0.01
+duracao = 5
 
-#%%
+#%% Função Calcula Espectro
 def calculate_spectrum(signal, sampling_frequency, single_sided=True):
     """
     Calculates the amplitude spectrum of a signal.
@@ -65,18 +65,31 @@ def calculate_spectrum(signal, sampling_frequency, single_sided=True):
 
     return xf, amplitudes
 #%%
-time = np.arange(0, duracao, duracao/fs)
+time = np.linspace(0, duracao, int(fs*duracao), endpoint=False)
 
-#%%
-# Chirp Linear
-a1 = (f1 - f0)/duracao**2
+#%% Chirp Linear
+a1 = (f1 - f0)/(pi * duracao**2)
 
-linear_chirp = np.cos(2*pi*(a1*time + f0)*time)
+# linear_chirp = np.cos(2*pi*(a1*time + f0)*time)
+linear_chirp = signal.chirp(time, f0, duracao, f1, method='linear')
 
-plt.plot(time, linear_chirp)
-plt.xlabel("Time (s)")
-plt.ylabel("Amplitude")
-plt.xlim(-0.5*duracao, 1.5*duracao)
+#%% Frequências do Chirp Linear
+
+xf1, amplitude1 = calculate_spectrum(linear_chirp, fs)
+
+#%% Plotagem dos gráficos
+figure1, (ax1, ax2) = plt.subplots(1, 2, figsize=(10, 6))
+ax1.plot(time, linear_chirp)
+ax1.set_xlabel("Time (s)")
+ax1.set_ylabel("Amplitude")
+ax1.set_xlim((-0.1*duracao, duracao))
+plt.grid(True)
+
+
+ax2.plot(xf1, amplitude1)
+ax2.set_xlabel("Frequencys (Hz)")
+ax2.set_ylabel("Amplitude")
+ax2.set_xlim((0, f1 + 100))
 plt.grid(True)
 
 plt.show()
