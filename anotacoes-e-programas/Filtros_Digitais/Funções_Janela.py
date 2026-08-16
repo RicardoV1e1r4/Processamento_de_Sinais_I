@@ -13,11 +13,24 @@ pi = np.pi
 
 # Janela Retangular
 def janela_retangular(M):
+    """
+        Retorna a janela Retangular 
+        
+        Argumentos:
+            M: é a orgem do filtro
+    """
     wr = np.ones(2 * (int(M//2)) + 1)
     return wr
 
 # Janela Triangular
-def janela_triangular(M):
+def janela_triangular(M, bartlett=False):
+    """
+        Retorna a janela Triangular
+        
+        Argumentos:
+            M: é a orgem do filtro
+            bartlett: habilita ao não a variante da janela triangular (Bartlett)
+    """
     n_pos = np.arange(1, int(M/2)+1)
     
     wt0 = 1
@@ -28,7 +41,14 @@ def janela_triangular(M):
     return wt
 
 # Janelas de Hamming e de Hann
-def janela_hamming(M):
+def janela_hamming(M, hann=False):
+    """
+        Retorna a janela Hamming 
+        
+        Argumentos:
+            M: é a orgem do filtro
+            hann: habilita ao não a variante da janela
+    """
     n_pos = np.arange(1, int(M//2) + 1)
     
     alpha = 0.5
