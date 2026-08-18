@@ -32,14 +32,25 @@ rejeita_faixa = pb + pa
 window_r = fj.janela_retangular(M)
 window_h = fj.janela_hamming(M)
 
-hn_linha = rejeita_faixa * window_h
+hn_linha = rejeita_faixa * window_r
 # print(len(hn_linha))
 
 # plt.plot(n, hn_linha, color='r')
 
 omega1, Hz = freqz(hn_linha, 1, 2048)
-plt.plot(Omega_s * omega1/(2 * pi), 20 * np.log10(abs(Hz)))
-plt.xlabel("frequency (Hz)")
-plt.ylabel("Resposta de módulo (dB)")
 
+# Menor valor
+minVal = int(abs(np.min(20 * np.log10(abs(Hz)))))
+print("Menor valor", minVal)
+
+#%% Gráfico Janela Retangular
+plt.plot(Omega_s * omega1/(2 * pi), 20 * np.log10(abs(Hz)), label='Filtro')
+plt.xlabel("frequency (Hz)")
+plt.ylabel("Impulse response (dB)")
+#%% Faixa do filtro
+plt.plot(Omega_c1*np.ones(minVal), np.arange(0, -minVal, -1), color='orange', label=f'freq.1 de {Omega_c1}')
+plt.plot(Omega_c2*np.ones(minVal), np.arange(0, -minVal, -1), color='green', label=f'freq.2 de {Omega_c2}')
+plt.legend()
+
+plt.savefig('rectangularwindown.png')
 plt.show()
