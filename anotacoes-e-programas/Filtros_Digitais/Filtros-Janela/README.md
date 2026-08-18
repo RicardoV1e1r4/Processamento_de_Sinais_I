@@ -91,6 +91,7 @@ Cada função janela apresenta um compromisso entre:
 As janelas mais utilizadas são:
 
 * Janela Retangular;
+  <img src="rectangularwindown.png" alt="Texto Alternativo" width="500">
 * Janela Bartlett;
 * Janela Hann;
 * Janela Hamming;
