@@ -31,7 +31,7 @@ def geracao_sinal(w, const=False):
     return y_n
 
 # Criação dos gráficos
-figure, (eix1, eix2) = plt.subplots(2, 1, figsize=(8,7))
+figure, (eix1, eix2, eix3) = plt.subplots(3, 1, figsize=(8,8))
 
 # Espaço extra para os botões deslizantes
 plt.subplots_adjust(
@@ -53,19 +53,19 @@ stem2 = eix2.stem(t, geracao_sinal(omega, False),
                   markerfmt='C0o',
                   basefmt='k-')
 
-
 eix2.set_xlabel('Time [s]', size=10)
 eix2.set_ylabel('Amplitude', size=10)
 eix2.set_title('Sinal variável')
 eix2.grid(True)
 
+eix3.stem()
 ###_____BOTÕES DESLIZANTES_____###
 # Deslizante 1 - raio da esfera A
 # fsample = plt.axes([0.2, 0.25, 0.65, 0.03])
 # slider_sample = Slider(fsample, 'Amostragem', 0.01, 5, valinit=fs)
 
 # #Deslizante 2 - Frequência angular
-freq_ang = figure.add_axes([0.15, 0.03, 0.7, 0.03])
+freq_ang = figure.add_axes([0.5, 0.5, 0.7, 0.03])
 
 slider_omega = Slider(
     ax=freq_ang,
@@ -99,4 +99,5 @@ def atualizar(val):
 # slider_raioa.on_changed(atualizar)
 slider_omega.on_changed(atualizar)
 
+plt.tight_layout()
 plt.show()
