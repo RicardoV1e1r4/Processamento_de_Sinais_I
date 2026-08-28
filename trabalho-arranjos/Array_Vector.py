@@ -20,7 +20,7 @@ ts = 1/fs
 fator = 0.5
 lambd = 1
 d = lambd*fator
-qtd_antenas = 16
+qtd_antenas = 2
 antenas = np.arange(0, qtd_antenas, 1)
 
 # Vetor de ângulos
