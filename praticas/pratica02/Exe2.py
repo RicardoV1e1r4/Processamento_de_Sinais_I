@@ -85,7 +85,6 @@ ax1.set_ylabel("Amplitude")
 ax1.set_xlim((-0.1*duracao, duracao))
 plt.grid(True)
 
-
 ax2.plot(xf1, amplitude1)
 ax2.set_xlabel("Frequencys (Hz)")
 ax2.set_ylabel("Amplitude")
